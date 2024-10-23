@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       model_name:
-        description: 'Huanshere/whisperx-vl'
+        description: 'for example huanshere/whisperx-vl'
         required: true
 
 jobs:
