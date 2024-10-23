@@ -14,7 +14,7 @@ download() {
 }
 
 # download faster-whisper-large-v3
-faster_whisper_model_dir=models/faster-whisper-large-v3
+faster_whisper_model_dir=models/models--Systran--faster-whisper-large-v3/snapshots/edaa852ec7e145841d8ffdb056a99866b5f0a478
 mkdir -p $faster_whisper_model_dir
 download "https://huggingface.co/Systran/faster-whisper-large-v3/resolve/main/config.json" "$faster_whisper_model_dir/config.json"
 download "https://huggingface.co/Systran/faster-whisper-large-v3/resolve/main/model.bin" "$faster_whisper_model_dir/model.bin"
@@ -23,7 +23,7 @@ download "https://huggingface.co/Systran/faster-whisper-large-v3/resolve/main/to
 download "https://huggingface.co/Systran/faster-whisper-large-v3/resolve/main/vocabulary.json" "$faster_whisper_model_dir/vocabulary.json"
 
 # download Belle-whisper-large-v3-zh-punct-fasterwhisper
-zh_model_dir=models/Belle-whisper-large-v3-zh-punct-fasterwhisper
+zh_model_dir=models/models--BELLE-2--Belle-whisper-large-v3-zh-punct/snapshots/f81f1ac2f123f118094a7baa69e532eab375600e
 mkdir -p $zh_model_dir
 download "https://huggingface.co/Huan69/Belle-whisper-large-v3-zh-punct-fasterwhisper/resolve/main/config.json" "$zh_model_dir/config.json"
 download "https://huggingface.co/Huan69/Belle-whisper-large-v3-zh-punct-fasterwhisper/resolve/main/model.bin" "$zh_model_dir/model.bin"

@@ -14,9 +14,9 @@ import ffmpeg
 
 compute_type = "float16"  # change to "int8" if low on GPU mem (may reduce accuracy)
 device = "cuda"
-whisper_arch = "./models/faster-whisper-large-v3"
-whisper_arch_zh = "./models/Belle-whisper-large-v3-zh-punct-fasterwhisper"
-
+whisper_arch = "large-v3"
+whisper_arch_zh = "Huan69/Belle-whisper-large-v3-zh-punct-fasterwhisper"
+download_root = "./models"
 
 class Output(BaseModel):
     segments: Any
@@ -133,7 +133,7 @@ class Predictor(BasePredictor):
             #! load the correct model based on the language, currently for zh we load the Belle model
             whisper_to_load = whisper_arch_zh if language == "zh" else whisper_arch
             model = whisperx.load_model(whisper_to_load, device, compute_type=compute_type, language=language,
-                                        asr_options=asr_options, vad_options=vad_options)
+                                        asr_options=asr_options, vad_options=vad_options, download_root=download_root)
 
             if debug:
                 elapsed_time = time.time_ns() / 1e6 - start_time
