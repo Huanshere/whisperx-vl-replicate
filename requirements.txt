@@ -2,6 +2,7 @@ torch==2.0.0
 torchaudio==2.0.0
 --find-links https://download.pytorch.org/whl/cu118
 
+pytorch-lightning==1.5.4
 ffmpeg-python
 pyannote.audio
 git+https://github.com/m-bain/whisperx.git

@@ -18,6 +18,9 @@ whisper_arch = "large-v3"
 whisper_arch_zh = "Huan69/Belle-whisper-large-v3-zh-punct-fasterwhisper"
 download_root = "./models"
 
+torch.backends.cuda.matmul.allow_tf32 = True
+torch.backends.cudnn.allow_tf32 = True
+
 class Output(BaseModel):
     segments: Any
     detected_language: str
