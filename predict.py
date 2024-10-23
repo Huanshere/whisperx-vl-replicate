@@ -15,6 +15,7 @@ import ffmpeg
 compute_type = "float16"  # change to "int8" if low on GPU mem (may reduce accuracy)
 device = "cuda"
 whisper_arch = "./models/faster-whisper-large-v3"
+whisper_arch_zh = "./models/Belle-whisper-large-v3-zh-punct-fasterwhisper"
 
 
 class Output(BaseModel):
@@ -59,7 +60,7 @@ class Predictor(BasePredictor):
                 default=None),
             batch_size: int = Input(
                 description="Parallelization of input audio transcription",
-                default=64),
+                default=16),
             temperature: float = Input(
                 description="Temperature to use for sampling",
                 default=0),
@@ -129,7 +130,9 @@ class Predictor(BasePredictor):
 
             start_time = time.time_ns() / 1e6
 
-            model = whisperx.load_model(whisper_arch, device, compute_type=compute_type, language=language,
+            #! load the correct model based on the language, currently for zh we load the Belle model
+            whisper_to_load = whisper_arch_zh if language == "zh" else whisper_arch
+            model = whisperx.load_model(whisper_to_load, device, compute_type=compute_type, language=language,
                                         asr_options=asr_options, vad_options=vad_options)
 
             if debug:

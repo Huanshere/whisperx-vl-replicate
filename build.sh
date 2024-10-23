@@ -13,14 +13,23 @@ download() {
   fi
 }
 
+# download faster-whisper-large-v3
 faster_whisper_model_dir=models/faster-whisper-large-v3
 mkdir -p $faster_whisper_model_dir
-
 download "https://huggingface.co/Systran/faster-whisper-large-v3/resolve/main/config.json" "$faster_whisper_model_dir/config.json"
 download "https://huggingface.co/Systran/faster-whisper-large-v3/resolve/main/model.bin" "$faster_whisper_model_dir/model.bin"
 download "https://huggingface.co/Systran/faster-whisper-large-v3/resolve/main/preprocessor_config.json" "$faster_whisper_model_dir/preprocessor_config.json"
 download "https://huggingface.co/Systran/faster-whisper-large-v3/resolve/main/tokenizer.json" "$faster_whisper_model_dir/tokenizer.json"
 download "https://huggingface.co/Systran/faster-whisper-large-v3/resolve/main/vocabulary.json" "$faster_whisper_model_dir/vocabulary.json"
+
+# download Belle-whisper-large-v3-zh-punct-fasterwhisper
+zh_model_dir=models/Belle-whisper-large-v3-zh-punct-fasterwhisper
+mkdir -p $zh_model_dir
+download "https://huggingface.co/Huan69/Belle-whisper-large-v3-zh-punct-fasterwhisper/resolve/main/config.json" "$zh_model_dir/config.json"
+download "https://huggingface.co/Huan69/Belle-whisper-large-v3-zh-punct-fasterwhisper/resolve/main/model.bin" "$zh_model_dir/model.bin"
+download "https://huggingface.co/Huan69/Belle-whisper-large-v3-zh-punct-fasterwhisper/resolve/main/preprocessor_config.json" "$zh_model_dir/preprocessor_config.json"
+download "https://huggingface.co/Huan69/Belle-whisper-large-v3-zh-punct-fasterwhisper/resolve/main/tokenizer.json" "$zh_model_dir/tokenizer.json"
+download "https://huggingface.co/Huan69/Belle-whisper-large-v3-zh-punct-fasterwhisper/resolve/main/vocabulary.json" "$zh_model_dir/vocabulary.json"
 
 pip install -U git+https://github.com/m-bain/whisperx.git
 
