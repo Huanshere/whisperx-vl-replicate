@@ -23,6 +23,7 @@ download "https://huggingface.co/Systran/faster-whisper-large-v3/resolve/main/to
 download "https://huggingface.co/Systran/faster-whisper-large-v3/resolve/main/vocabulary.json" "$faster_whisper_model_dir/vocabulary.json"
 
 # download Belle-whisper-large-v3-zh-punct-fasterwhisper
+# TODO 验证这样下载的哈希是否允许
 zh_model_dir=models/models--BELLE-2--Belle-whisper-large-v3-zh-punct/snapshots/f81f1ac2f123f118094a7baa69e532eab375600e
 mkdir -p $zh_model_dir
 download "https://huggingface.co/Huan69/Belle-whisper-large-v3-zh-punct-fasterwhisper/resolve/main/config.json" "$zh_model_dir/config.json"
